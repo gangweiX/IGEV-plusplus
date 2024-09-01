@@ -24,3 +24,64 @@ You can demo a trained model on pairs of images. To predict stereo for demo-imgs
 ```Shell
 python demo_imgs.py --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth
 ```
+
+## Environment
+* NVIDIA RTX 3090
+* python 3.8
+* torch 1.12.1+cu113
+
+### Create a virtual environment and activate it.
+
+```Shell
+conda create -n IGEV_plusplus python=3.8
+conda activate IGEV_plusplus
+```
+### Dependencies
+
+```Shell
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install tqdm
+pip install scipy
+pip install opencv-python
+pip install scikit-image
+pip install tensorboard
+pip install matplotlib 
+pip install timm==0.5.4
+
+```
+
+## Evaluation
+
+To evaluate on Scene Flow or Middlebury or ETH3D, run
+
+```Shell
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset sceneflow
+```
+or
+```Shell
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset middlebury_H
+```
+or
+```Shell
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset eth3d
+```
+
+## Training
+
+To train on Scene Flow, run
+
+```Shell
+python train_stereo.py --logdir ./checkpoints/sceneflow
+```
+
+To train on KITTI, run
+```Shell
+python train_stereo.py --logdir ./checkpoints/kitti --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --train_datasets kitti
+```
+
+## Submission
+
+For submission to the KITTI benchmark, run
+```Shell
+python save_disp.py
+```
