@@ -14,3 +14,14 @@ Right: Comparisons with state-of-the-art stereo methods on Middlebury and KITTI 
 ## Visual comparisons with SOTA methods in large disparities.
 ![image](figures/teaser.png)
 PCWNet is a volume filtering-based method, DLNR is an iterative optimization-based method, and GMStereo is a transformer-based method. They all struggle to handle large disparities in large textureless objects at a close range.
+
+## Demos
+Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1SsMHRyN7808jDViMN1sKz1Nx-71JxUuz?usp=share_link)
+
+We assume the downloaded pretrained weights are located under the pretrained_models directory.
+
+You can demo a trained model on pairs of images. To predict stereo for demo-imgs directory, run
+```Shell
+python demo_imgs.py \
+--restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth \
+```
