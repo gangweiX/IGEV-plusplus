@@ -22,6 +22,5 @@ We assume the downloaded pretrained weights are located under the pretrained_mod
 
 You can demo a trained model on pairs of images. To predict stereo for demo-imgs directory, run
 ```Shell
-python demo_imgs.py \
---restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth \
+python demo_imgs.py --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth
 ```
