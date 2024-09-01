@@ -16,7 +16,7 @@ Right: Comparisons with state-of-the-art stereo methods on Middlebury and KITTI 
 PCWNet is a volume filtering-based method, DLNR is an iterative optimization-based method, and GMStereo is a transformer-based method. They all struggle to handle large disparities in large textureless objects at a close range.
 
 ## Demos
-Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1SsMHRyN7808jDViMN1sKz1Nx-71JxUuz?usp=share_link)
+Pretrained models can be downloaded from [google drive](https://drive.google.com/drive/folders/1eubNsu03MlhUfTtrbtN7bfAsl39s2ywJ?usp=drive_link)
 
 We assume the downloaded pretrained weights are located under the pretrained_models directory.
 
@@ -52,36 +52,42 @@ pip install timm==0.5.4
 
 ## Evaluation
 
-To evaluate on Scene Flow or Middlebury or ETH3D, run
+To evaluate IGEV++ on Scene Flow or Middlebury, run
 
 ```Shell
-python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset sceneflow
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth --dataset sceneflow
 ```
 or
 ```Shell
 python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset middlebury_H
 ```
-or
+
+To evaluate RT-IGEV++ (real-time version) on Scene Flow, run
+
 ```Shell
-python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset eth3d
+python evaluate_stereo_rt.py --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth --dataset sceneflow
 ```
 
 ## Training
 
-To train on Scene Flow, run
+To train IGEV++ on Scene Flow or KITTI, run
 
 ```Shell
-python train_stereo.py --logdir ./checkpoints/sceneflow
+python train_stereo.py --train_datasets sceneflow
 ```
-
-To train on KITTI, run
+or
 ```Shell
-python train_stereo.py --logdir ./checkpoints/kitti --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --train_datasets kitti
+python train_stereo.py --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth --train_datasets kitti
 ```
 
 ## Submission
 
-For submission to the KITTI benchmark, run
+For IGEV++ submission to the KITTI benchmark, run
 ```Shell
 python save_disp.py
+```
+
+For RT-IGEV++ submission to the KITTI benchmark, run
+```Shell
+python save_disp_rt.py
 ```
