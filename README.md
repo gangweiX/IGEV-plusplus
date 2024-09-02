@@ -117,3 +117,23 @@ For RT-IGEV++ submission to the KITTI benchmark, run
 ```Shell
 python save_disp_rt.py
 ```
+
+## Citation
+
+If you find our works useful in your research, please consider citing our papers:
+
+```bibtex
+@inproceedings{xu2023iterative,
+  title={Iterative Geometry Encoding Volume for Stereo Matching},
+  author={Xu, Gangwei and Wang, Xianqi and Ding, Xiaohuan and Yang, Xin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={21919--21928},
+  year={2023}
+}
+```
+
+
+# Acknowledgements
+
+This project is based on [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo), [GMStereo](https://github.com/autonomousvision/unimatch), and [CoEx](https://github.com/antabangun/coex). We thank the original authors for their excellent works.
+
