@@ -50,6 +50,20 @@ pip install timm==0.5.4
 
 ```
 
+## Required Data
+
+* [SceneFlow](https://lmb.informatik.uni-freiburg.de/resources/datasets/SceneFlowDatasets.en.html)
+* [KITTI](https://www.cvlibs.net/datasets/kitti/eval_scene_flow.php?benchmark=stereo)
+* [ETH3D](https://www.eth3d.net/datasets)
+* [Middlebury](https://vision.middlebury.edu/stereo/submit3/)
+* [TartanAir](https://github.com/castacks/tartanair_tools)
+* [CREStereo Dataset](https://github.com/megvii-research/CREStereo)
+* [FallingThings](https://research.nvidia.com/publication/2018-06_falling-things-synthetic-dataset-3d-object-detection-and-pose-estimation)
+* [InStereo2K](https://github.com/YuhuaXu/StereoDataset)
+* [Sintel Stereo](http://sintel.is.tue.mpg.de/stereo)
+* [HR-VS](https://drive.google.com/file/d/1SgEIrH_IQTKJOToUwR1rx4-237sThUqX/view)
+
+
 ## Evaluation
 
 To evaluate IGEV++ on Scene Flow or Middlebury, run
@@ -78,6 +92,17 @@ python train_stereo.py --train_datasets sceneflow
 or
 ```Shell
 python train_stereo.py --train_datasets kitti --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth
+```
+
+To train IGEV++ on Middlebury or ETH3D, you need to run
+```Shell
+python train_stereo.py --train_datasets middlebury_train --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth --image_size 384 512 --num_steps 200000
+python train_stereo.py --tarin_datasets middlebury_finetune --restore_ckpt ./checkpoints/middlebury_train.pth --image_size 384 768 --num_steps 100000
+```
+or
+```Shell
+python train_stereo.py --train_datasets eth3d_train --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth --image_size 384 512 --num_steps 300000
+python train_stereo.py --tarin_datasets eth3d_finetune --restore_ckpt ./checkpoints/eth3d_train.pth --image_size 384 512 --num_steps 100000
 ```
 
 ## Submission
