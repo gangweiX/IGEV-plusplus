@@ -212,7 +212,7 @@ if __name__ == '__main__':
 
     # Training parameters
     parser.add_argument('--batch_size', type=int, default=8, help="batch size used during training.")
-    parser.add_argument('--train_datasets', default='kitti', help="training datasets.")
+    parser.add_argument('--train_datasets', default='sceneflow', choices=['sceneflow', 'kitti'], help="training datasets.")
     parser.add_argument('--lr', type=float, default=0.0002, help="max learning rate.")
     parser.add_argument('--num_steps', type=int, default=200000, help="length of training schedule.")
     parser.add_argument('--image_size', type=int, nargs='+', default=[320, 768], help="size of the random image crops used during training.")
