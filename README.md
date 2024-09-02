@@ -59,13 +59,13 @@ python evaluate_stereo.py --restore_ckpt ./pretrained_models/igev_plusplus/scene
 ```
 or
 ```Shell
-python evaluate_stereo.py --restore_ckpt ./pretrained_models/sceneflow/sceneflow.pth --dataset middlebury_H
+python evaluate_stereo.py --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth --dataset middlebury_H
 ```
 
 To evaluate RT-IGEV++ (real-time version) on Scene Flow, run
 
 ```Shell
-python evaluate_stereo_rt.py --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth --dataset sceneflow
+python evaluate_stereo_rt.py --dataset sceneflow --restore_ckpt ./pretrained_models/igev_rt/sceneflow.pth
 ```
 
 ## Training
@@ -77,7 +77,7 @@ python train_stereo.py --train_datasets sceneflow
 ```
 or
 ```Shell
-python train_stereo.py --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth --train_datasets kitti
+python train_stereo.py --train_datasets kitti --restore_ckpt ./pretrained_models/igev_plusplus/sceneflow.pth
 ```
 
 ## Submission
