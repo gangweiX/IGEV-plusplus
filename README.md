@@ -1,5 +1,6 @@
-# IGEV++: Iterative Multi-range Geometry Encoding Volumes for Stereo Matching
-Gangwei Xu, Xianqi Wang, Zhaoxing Zhang, Junda Cheng, Chunyuan Liao, Xin Yang <br>
+# IGEV++
+[IGEV++: Iterative Multi-range Geometry Encoding Volumes for Stereo Matching](https://arxiv.org/pdf/2409.00638) <br/>
+Gangwei Xu, Xianqi Wang, Zhaoxing Zhang, Junda Cheng, Chunyuan Liao, Xin Yang <br/>
 
 ## Network architecture
 ![teaser](figures/network.png)
