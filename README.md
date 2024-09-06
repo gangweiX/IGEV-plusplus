@@ -4,7 +4,7 @@ Gangwei Xu, Xianqi Wang, Zhaoxing Zhang, Junda Cheng, Chunyuan Liao, Xin Yang <b
 
 ## Visual comparisons with SOTA methods in large disparities.
 ![image](figures/teaser.png)
-PCWNet is a volume filtering-based method, DLNR is an iterative optimization-based method, and GMStereo is a transformer-based method. Our IGEV++ performs exceptionally well in large textureless regions at close range with large disparities.
+PCWNet is a volume filtering-based method, DLNR is an iterative optimization-based method, and GMStereo is a transformer-based method. Our IGEV++ performs well in large textureless regions at close range with large disparities.
 
 ## Network architecture
 ![image](figures/network.png)
