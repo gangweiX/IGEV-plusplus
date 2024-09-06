@@ -12,7 +12,7 @@ The IGEV++ first builds Multi-range Geometry Encoding Volumes (MGEV) via Adaptiv
 
 ## Comparisons with SOTA methods
 <img src="figures/teaser_v2.png" width="90%">
-\textbf{Left:} Comparisons with state-of-the-art stereo methods across different disparity ranges on the Scene Flow test set. Our IGEV++ outperforms previously published methods by a large margin across all disparity ranges. 
+Left: Comparisons with state-of-the-art stereo methods across different disparity ranges on the Scene Flow test set. Our IGEV++ outperforms previously published methods by a large margin across all disparity ranges. 
 Right: Comparisons with state-of-the-art stereo methods on Middlebury and KITTI leaderboards.
 
 ## Demos
