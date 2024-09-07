@@ -123,6 +123,14 @@ python save_disp_rt.py
 If you find our works useful in your research, please consider citing our papers:
 
 ```bibtex
+
+@article{xu2024igev++,
+  title={IGEV++: Iterative Multi-range Geometry Encoding Volumes for Stereo Matching},
+  author={Xu, Gangwei and Wang, Xianqi and Zhang, Zhaoxing and Cheng, Junda and Liao, Chunyuan and Yang, Xin},
+  journal={arXiv preprint arXiv:2409.00638},
+  year={2024}
+}
+
 @inproceedings{xu2023iterative,
   title={Iterative Geometry Encoding Volume for Stereo Matching},
   author={Xu, Gangwei and Wang, Xianqi and Ding, Xiaohuan and Yang, Xin},
