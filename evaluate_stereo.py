@@ -2,7 +2,7 @@ import sys
 sys.path.append('core')
 
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
 
 import argparse
 import time
