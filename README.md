@@ -118,7 +118,7 @@ NaN values during training: If you encounter NaN values in your training, this i
     ```Shell
     conda create -n IGEV_plusplus_bf16 python=3.8
     conda activate IGEV_plusplus_bf16
-    bash env_bf16.sh
+    bash env_bfloat16.sh
     ```
 
 2. Then you can train the model with bfloat16 precision:
