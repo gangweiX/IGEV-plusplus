@@ -106,6 +106,26 @@ python train_stereo.py --train_datasets eth3d_train --restore_ckpt ./pretrained_
 python train_stereo.py --tarin_datasets eth3d_finetune --restore_ckpt ./checkpoints/eth3d_train.pth --image_size 384 512 --num_steps 100000
 ```
 
+## Bfloat16 Training
+NaN values during training: If you encounter NaN values in your training, this is likely due to overflow when using float16. This can happen when large gradients or high activation values exceed the range represented by float16. To fix this: 
+
+-Try switching to `torch.bfloat16` by using `--precision_dtype torch.bfloat16`.
+
+-Alternatively, you can use `torch.float32` precision by setting `--precision_dtype float32`.
+
+### Training with bfloat16
+1. Before you start training, make sure you have hardware that supports bfloat16 and the right environment set up for mixed precision training. Create the environment and install dependencies into it:
+    ```Shell
+    conda create -n IGEV_plusplus_bf16 python=3.8
+    conda activate IGEV_plusplus_bf16
+    bash env_bf16.sh
+    ```
+
+2. Then you can train the model with bfloat16 precision:
+   ```Shell
+    python train_stereo.py --mixed_precision True --precision_dtype torch.bfloat16
+    ```
+
 ## Submission
 
 For IGEV++ submission to the KITTI benchmark, run
