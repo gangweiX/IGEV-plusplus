@@ -209,6 +209,8 @@ if __name__ == '__main__':
     parser.add_argument('--restore_ckpt', default=None, help='load the weights from a specific checkpoint')
     parser.add_argument('--logdir', default='./checkpoints_rt', help='the directory to save logs and checkpoints')
     parser.add_argument('--mixed_precision', default=True, action='store_true', help='use mixed precision')
+    parser.add_argument('--precision_dtype', default=torch.float16, choices=[torch.float16, torch.bfloat16, torch.float32], help='Choose mixed precision type: float16 or bfloat16 or float32')
+
 
     # Training parameters
     parser.add_argument('--batch_size', type=int, default=8, help="batch size used during training.")
