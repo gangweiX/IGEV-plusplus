@@ -69,6 +69,7 @@ if __name__ == '__main__':
     parser.add_argument('-r', '--right_imgs', help="path to all second (right) frames", default="./demo-imgs/*/im1.png")
     parser.add_argument('--output_directory', help="directory to save output", default="demo_output")
     parser.add_argument('--mixed_precision', action='store_true', default=True, help='use mixed precision')
+    parser.add_argument('--precision_dtype', default='float32', choices=['float16', 'bfloat16', 'float32'], help='Choose precision type: float16 or bfloat16 or float32')
     parser.add_argument('--valid_iters', type=int, default=16, help='number of flow-field updates during forward pass')
 
     # Architecture choices
