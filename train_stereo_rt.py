@@ -13,7 +13,7 @@ import torch.nn as nn
 import torch.optim as optim
 from core_rt.rt_igev_stereo import IGEVStereo
 from evaluate_stereo_rt import *
-import core.stereo_datasets as datasets
+import core_rt.stereo_datasets as datasets
 import torch.nn.functional as F
 
 try:
