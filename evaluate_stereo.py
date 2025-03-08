@@ -10,9 +10,9 @@ import logging
 import numpy as np
 import torch
 from tqdm import tqdm
-from igev_stereo import IGEVStereo, autocast
-import stereo_datasets as datasets
-from utils.utils import InputPadder
+from core.igev_stereo import IGEVStereo, autocast
+import core.stereo_datasets as datasets
+from core.utils.utils import InputPadder
 from PIL import Image
 import torch.utils.data as data
 from pathlib import Path
