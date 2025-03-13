@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from core_rt.update import BasicUpdateBlock
 from core_rt.extractor import Feature
-from core_rt.geometry import Combined_Geo_Encoding_Volume
+from core_rt.geometry import Geo_Encoding_Volume
 from core_rt.submodule import *
 
 
@@ -180,17 +180,16 @@ class IGEVStereo(nn.Module):
             context = list(self.context_zqr_conv(context).split(split_size=self.args.hidden_dim, dim=1))
 
 
-        geo_block = Combined_Geo_Encoding_Volume
+        geo_block = Geo_Encoding_Volume
         geo_fn = geo_block(geo_encoding_volume.float(), radius=self.args.corr_radius, num_levels=self.args.corr_levels)
         b, c, h, w = match_left.shape
-        coords = torch.arange(w).float().to(match_left.device).reshape(1,1,w,1).repeat(b, h, 1, 1)
         disp = init_disp
         disp_preds = []
 
         # GRUs iterations to update disparity
         for itr in range(iters):
             disp = disp.detach()
-            geo_feat = geo_fn(disp, coords)
+            geo_feat = geo_fn(disp)
             with autocast(enabled=self.args.mixed_precision, dtype=getattr(torch, self.args.precision_dtype, torch.float16)):
                 net, mask_feat_4, delta_disp = self.update_block(net, context, geo_feat, disp)
             disp = disp + delta_disp
