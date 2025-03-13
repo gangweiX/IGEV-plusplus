@@ -15,7 +15,7 @@ class Geo_Encoding_Volume:
             geo_volume = F.avg_pool2d(geo_volume, [1,2], stride=[1,2])
             self.geo_volume_pyramid.append(geo_volume)
 
-    def __call__(self, disp, coords):
+    def __call__(self, disp):
         r = self.radius
         b, _, h, w = disp.shape
         out_pyramid = []
