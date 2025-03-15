@@ -12,9 +12,6 @@ from core.utils.utils import InputPadder
 from PIL import Image
 from matplotlib import pyplot as plt
 import os
-import skimage.io
-import cv2
-from utils.frame_utils import readPFM
 
 
 DEVICE = 'cuda'
@@ -49,17 +46,14 @@ def demo(args):
             image1, image2 = padder.pad(image1, image2)
             disp = model(image1, image2, iters=args.valid_iters, test_mode=True)
             disp = padder.unpad(disp)
-            file_stem = imfile1.split('/')[-2]
+            file_stem = os.path.basename(imfile1).split('.')[0]
             filename = os.path.join(output_directory, f'{file_stem}.png')
             disp = disp.cpu().numpy().squeeze()
             plt.imsave(filename, disp.squeeze(), cmap='jet')
             
             if args.save_numpy:
                 np.save(output_directory / f"{file_stem}.npy", disp.squeeze())
-
-            # disp = np.round(disp * 256).astype(np.uint16)
-            # cv2.imwrite(filename, cv2.applyColorMap(cv2.convertScaleAbs(disp.squeeze(), alpha=0.01),cv2.COLORMAP_JET), [int(cv2.IMWRITE_PNG_COMPRESSION), 0])
-
+                
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
