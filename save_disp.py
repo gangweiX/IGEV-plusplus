@@ -7,8 +7,8 @@ import numpy as np
 import torch
 from tqdm import tqdm
 from pathlib import Path
-from igev_stereo import IGEVStereo
-from utils.utils import InputPadder
+from core.igev_stereo import IGEVStereo
+from core.utils.utils import InputPadder
 from PIL import Image
 from matplotlib import pyplot as plt
 import os
