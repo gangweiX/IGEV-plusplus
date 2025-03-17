@@ -197,7 +197,7 @@ class IGEVStereo(nn.Module):
             prob_volume2 = F.softmax(cost_volume2.squeeze(1), dim=1)
             agg_disp2 = disparity_regression(prob_volume2, self.args.l_disp_range, self.args.l_disp_interval)
 
-            disp_feature = self.disp_conv(torch.cat([agg_disp0,agg_disp1, agg_disp2], dim=1))
+            disp_feature = self.disp_conv(torch.cat([agg_disp0, agg_disp1, agg_disp2], dim=1))
             selective_weights = torch.sigmoid(self.selective_conv(torch.cat([features_left[0], disp_feature], dim=1)))
             cnet_list = self.cnet(image1, num_layers=self.args.n_gru_layers)
             net_list = [torch.tanh(x[0]) for x in cnet_list]
